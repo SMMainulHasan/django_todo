@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for t in tasks %}
+    {% if t.completed == True %}
+    <div class = "d-flex justify-content-between bd-highlight mb-3">
+        <s>{{t.task}}</s>
+        <div class= "d-flex flex-row-reverse">
+            <a class = "btn btn-sm btn-danger ms-1" href="../delete/{{t.id}}">Delete</a>
+            <a class = "btn btn-sm btn-primary ms-1" href="../edit/{{t.id}}">Edit</a>
+            <a class = "btn btn-sm btn-success ms-1" href="../complete/{{t.id}}">Complete</a>
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+</br>
+<a class="btn btn-primary" href="../add_task">+ Add new task</a>
+<a class="btn btn-primary" href="../">Task to Complete</a>
+{% block add_task %}{% endblock %}
+
+{% endblock content%}

@@ -1,0 +1,11 @@
+{% extends 'show_tasks.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block add_task %}
+<form  method="post">
+    {% csrf_token %}
+    {{form | crispy}}
+    <button type="submit">⬆ edit done</button>
+</form>
+{% endblock %}
